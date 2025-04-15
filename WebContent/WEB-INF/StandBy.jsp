@@ -8,6 +8,6 @@
 
 </head>
 <body>
-	あいうえお
+	<p id="count"></p>
 </body>
 </html>

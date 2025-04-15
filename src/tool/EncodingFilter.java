@@ -19,6 +19,7 @@ public class EncodingFilter implements Filter {
 	) throws IOException, ServletException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("html; charset=UTF-8");
+	}
 
 	public void init(FilterConfig filterConfig) {}
 	public void destroy() {}

@@ -12,7 +12,7 @@ public class StandByAction extends Action {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		return null;
+		return "WEB-INF/StandBy.jsp";
 	}
 
 }

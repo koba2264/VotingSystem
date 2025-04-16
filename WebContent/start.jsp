@@ -7,7 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%-- 問題表示 --%>
 <h1>${ sessionScope.q.text }</h1><br>
+<%--選択肢2つ表示。 --%>
 <input type = "submit" value = "${ sessionScope.q.choicesA }">
 <input type = "submit" value = "${ sessionScope.q.choicesB }">
 

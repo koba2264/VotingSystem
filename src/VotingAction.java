@@ -17,7 +17,7 @@ public class VotingAction extends Action {
 		HttpSession session = request.getSession();
 		//仮の数字
 		int id = 1;
-		
+
 
 		/**
 		 * daoから問題文、選択肢A、選択肢Bを取り出しQestion型のqに保存

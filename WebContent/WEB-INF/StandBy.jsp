@@ -9,5 +9,9 @@
 </head>
 <body>
 	<p id="count"></p>
+	あいうえお
+
 </body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/stand_by.js"></script>
 </html>

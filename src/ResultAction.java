@@ -7,7 +7,7 @@ public class ResultAction extends Action {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-//		te
+//		test
 		return null;
 	}
 

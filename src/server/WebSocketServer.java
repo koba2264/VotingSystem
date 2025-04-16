@@ -28,6 +28,8 @@ public class WebSocketServer {
     	} catch (Exception e) {
     		e.printStackTrace();
     	}
+//    	待機画面にいる人数
+    	String tmp = String.valueOf(sessions.size());
     	// 待機人数受け取り
     	String result = String.valueOf(count.sum());
     	// 保存しているセッションIDの数繰り返す
@@ -35,7 +37,7 @@ public class WebSocketServer {
         	// セッションが開いている場合
             if (session.isOpen()) {
 //            	人数を送る
-                session.getAsyncRemote().sendText(result);
+                session.getAsyncRemote().sendText(tmp);
             }
         }
         return null;

@@ -6,6 +6,11 @@ package bean;
  *
  */
 public class Question implements java.io.Serializable {
+	/**
+	 * クラス変数id
+	 */
+	public static int id = 1;
+
 	/** 問題文 */
 	private String text;
 	/** 選択肢A */
@@ -41,6 +46,7 @@ public class Question implements java.io.Serializable {
 	 * 問題文のゲッター
 	 * @return 問題文の原文
 	 */
+
 	public String getText() {
 		return text;
 	}

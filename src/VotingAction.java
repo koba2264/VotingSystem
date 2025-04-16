@@ -3,7 +3,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import bean.Question;
-import dao.VotingDAO;
+import dao.QestionDAO;
 import tool.Action;
 
 
@@ -15,15 +15,12 @@ public class VotingAction extends Action {
 		 * セッション取得
 		 */
 		HttpSession session = request.getSession();
-		//仮の数字
-		int id = 1;
-
 
 		/**
 		 * daoから問題文、選択肢A、選択肢Bを取り出しQestion型のqに保存
 		 */
-		VotingDAO vd = new VotingDAO();
-		Question q = vd.question(id);
+		QestionDAO vd = new QestionDAO();
+		Question q = vd.question();
 
 		session.setAttribute("q", q);
 		return "start.jsp";

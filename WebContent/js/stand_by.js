@@ -4,11 +4,12 @@ $(function() {
     var flag = false;
 
     ws.onmessage = function(receive) {
-        $("#id").text(receive.data);
+        $("#count").text(receive.data);
+        console.log(receive.data);
     };
 
     ws.onopen = function() {
-      ws.send("WebSocketでメッセージを送信します！");
-      console.log("メッセージを送信しました！");
+      ws.send("newConnection");
+      console.log("接続");
     };
   });

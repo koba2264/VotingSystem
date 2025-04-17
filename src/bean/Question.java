@@ -6,12 +6,18 @@ package bean;
  *
  */
 public class Question implements java.io.Serializable {
+	private static int id = 1;
+
 	/** 問題文 */
 	private String text;
 	/** 選択肢A */
 	private String ChoicesA;
 	/** 選択肢B */
 	private String ChoicesB;
+
+	public static void setId(int id) {
+		Question.id = id;
+	}
 
 	/**
 	 * 問題文のセッター
@@ -61,4 +67,7 @@ public class Question implements java.io.Serializable {
 		return ChoicesB;
 	}
 
+	public static int getId() {
+		return Question.id;
+	}
 }

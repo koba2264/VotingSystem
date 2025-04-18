@@ -9,8 +9,6 @@
 </head>
 <body>
 	${ sessionScope.q.text }
-
-
 	<form action="QuestionSelection.action" method="post">
 		<select name="id">
 			<c:forEach var="Question" items="${ sessionScope.qList }">

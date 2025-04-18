@@ -9,6 +9,8 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
+import bean.Question;
+
 @ServerEndpoint("/WebSocketServer")
 public class WebSocketServer {
 
@@ -43,6 +45,7 @@ public class WebSocketServer {
     			}
     		}
     	} else if (message.equals("goVoting")) {
+    		Question.resetSessionList();
     		for (Session session : ResultSessions) {
     			// セッションが開いている場合
     			if (session.isOpen()) {

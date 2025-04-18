@@ -1,6 +1,8 @@
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import bean.Question;
 import dao.CountDAO;
 import tool.Action;
 import tool.Answer;
@@ -14,16 +16,25 @@ public class StandByAction extends Action {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String ans = request.getParameter("");
-		Answer answer = null;
-		if (ans.equals("A")) {
-			answer = Answer.A;
-		} else if (ans.equals("B")) {
-			answer = Answer.B;
-		}
+		HttpSession session = request.getSession();
+		String sessionId = session.getId();
 
-		CountDAO dao = new CountDAO();
-		dao.vote(answer);
+		if (!Question.checkSessionList(sessionId)) {
+			String ans = request.getParameter("choice");
+			Answer answer = null;
+			System.out.println(ans);
+			if (ans.equals("A")) {
+				answer = Answer.A;
+			} else if (ans.equals("B")) {
+				answer = Answer.B;
+			}
+
+			CountDAO dao = new CountDAO();
+			dao.vote(answer);
+			System.out.println("投票");
+			Question.setSessionList(sessionId);
+		}
+		System.out.println(sessionId);
 
 		return "WEB-INF/StandBy.jsp";
 	}

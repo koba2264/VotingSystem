@@ -1,5 +1,8 @@
 package bean;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 問題文と選択肢を保持するbeanクラス
  * @author s_kobayashi
@@ -8,15 +11,15 @@ package bean;
 public class Question implements java.io.Serializable {
 
 	private static int id = 1;
-
+	private static List<String> SessionList = new ArrayList<>();
 	private int questionId;
 
 	/** 問題文 */
 	private String text;
 	/** 選択肢A */
-	private String ChoicesA;
+	private String choicesA;
 	/** 選択肢B */
-	private String ChoicesB;
+	private String choicesB;
 
 	public static void setId(int id) {
 		Question.id = id;
@@ -35,7 +38,7 @@ public class Question implements java.io.Serializable {
 	 * @param choicesA 選択肢A
 	 */
 	public void setChoicesA(String choicesA) {
-		ChoicesA = choicesA;
+		this.choicesA = choicesA;
 	}
 
 	/**
@@ -43,7 +46,7 @@ public class Question implements java.io.Serializable {
 	 * @param choicesB 選択肢B
 	 */
 	public void setChoicesB(String choicesB) {
-		ChoicesB = choicesB;
+		this.choicesB = choicesB;
 	}
 
 	/**
@@ -60,7 +63,7 @@ public class Question implements java.io.Serializable {
 	 * @return 選択肢Aの原文
 	 */
 	public String getChoicesA() {
-		return ChoicesA;
+		return choicesA;
 	}
 
 	/**
@@ -68,7 +71,7 @@ public class Question implements java.io.Serializable {
 	 * @return 選択肢Bの原文
 	 */
 	public String getChoicesB() {
-		return ChoicesB;
+		return choicesB;
 	}
 
 	public static int getId() {
@@ -81,5 +84,30 @@ public class Question implements java.io.Serializable {
 
 	public void setQuestionId(int questionId) {
 		this.questionId = questionId;
+	}
+
+	/**
+	 * すでに投票したの確認
+	 * @param sessionId 確認するセッションid
+	 * @return あればtrue
+	 */
+	public static boolean	checkSessionList(String sessionId) {
+		boolean result = SessionList.contains(sessionId);
+		return result;
+	}
+
+	/**
+	 * SessionListへ投票済みのセッションIDを追加
+	 * @param sessionId 投票したセッションID
+	 */
+	public static void setSessionList(String sessionId) {
+		SessionList.add(sessionId);
+	}
+
+	/**
+	 * 投票状況のリセット
+	 */
+	public static void resetSessionList() {
+		SessionList = new ArrayList<>();
 	}
 }

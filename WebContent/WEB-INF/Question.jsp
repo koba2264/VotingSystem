@@ -15,6 +15,7 @@
     <label for="A">${ sessionScope.q.choicesA }</label>
     <input type="radio" id="choices" name="choice" value="B" checked />
     <label for="B">${ sessionScope.q.choicesB }</label>
+    <input type="submit" value="送信">
 </form>
 
 </body>

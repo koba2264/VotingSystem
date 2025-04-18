@@ -7,6 +7,7 @@ import tool.Action;
 
 public class ResultAction extends Action {
 
+
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
     	request.setCharacterEncoding("UTF-8");
@@ -14,6 +15,7 @@ public class ResultAction extends Action {
     	ResultDAO dao = new ResultDAO();
         Question question = dao.search();
         
+
 
         request.setAttribute("question", question);
         

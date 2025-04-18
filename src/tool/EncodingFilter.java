@@ -10,6 +10,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
+
 @WebFilter(urlPatterns={"/*"})
 public class EncodingFilter implements Filter {
 
@@ -25,4 +26,5 @@ public class EncodingFilter implements Filter {
 
 	public void init(FilterConfig filterConfig) {}
 	public void destroy() {}
+
 }

@@ -6,9 +6,11 @@ package bean;
  *
  */
 public class Question implements java.io.Serializable {
-	private static int id = 2;
+
+	private static int id = 1;
 
 	private int questionId;
+
 	/** 問題文 */
 	private String text;
 	/** 選択肢A */
@@ -48,6 +50,7 @@ public class Question implements java.io.Serializable {
 	 * 問題文のゲッター
 	 * @return 問題文の原文
 	 */
+
 	public String getText() {
 		return text;
 	}
@@ -79,4 +82,6 @@ public class Question implements java.io.Serializable {
 	public void setQuestionId(int questionId) {
 		this.questionId = questionId;
 	}
+
 }
+

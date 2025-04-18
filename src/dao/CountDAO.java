@@ -68,4 +68,15 @@ public class CountDAO extends DAO {
 		return line;
 	}
 
+	public int start() throws Exception {
+		Connection con = getConnection();
+
+		PreparedStatement st = con.prepareStatement(
+				"DELETE FROM COUNT;INSERT INTO COUNT(ID) SELECT ID FROM QUESTIONS;");
+		int line = st.executeUpdate();
+		st.close();
+		con.close();
+		return line;
+	}
+
 }

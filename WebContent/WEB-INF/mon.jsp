@@ -5,13 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-
 </head>
 <body>
-	<p id="count"></p>
-	あいうえお
+	問題
+	${ sessionScope.q.text }
 
 </body>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/stand_by.js"></script>
 </html>

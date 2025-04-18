@@ -6,10 +6,10 @@ package bean;
  *
  */
 public class Question implements java.io.Serializable {
-	/**
-	 * クラス変数id
-	 */
-	public static int id = 1;
+
+	private static int id = 1;
+
+	private int questionId;
 
 	/** 問題文 */
 	private String text;
@@ -17,6 +17,10 @@ public class Question implements java.io.Serializable {
 	private String ChoicesA;
 	/** 選択肢B */
 	private String ChoicesB;
+
+	public static void setId(int id) {
+		Question.id = id;
+	}
 
 	/**
 	 * 問題文のセッター
@@ -67,4 +71,15 @@ public class Question implements java.io.Serializable {
 		return ChoicesB;
 	}
 
+	public static int getId() {
+		return Question.id;
+	}
+
+	public int getQuestionId() {
+		return questionId;
+	}
+
+	public void setQuestionId(int questionId) {
+		this.questionId = questionId;
+	}
 }

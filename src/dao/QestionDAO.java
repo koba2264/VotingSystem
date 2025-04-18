@@ -3,6 +3,9 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
 
 import bean.Question;
 
@@ -12,7 +15,8 @@ public class QestionDAO extends DAO {
 		 * beanのQestionクラスをインスタンス化。idを取得
 		 */
 		Question q = new Question();
-		int id = Question.id;
+
+		int id = Question.getId();
 		/**
 		 * データベースに接続
 		 */
@@ -36,5 +40,41 @@ public class QestionDAO extends DAO {
 		st.close();
 		con.close();
 		return q;
+	}
+
+	/**
+	 * 全問取得
+	 * @return
+	 * @throws Exception
+	 */
+	public List<Question> allQuestion() throws Exception {
+		List<Question> qList = new ArrayList<>();
+		Question q = null;
+		/**
+		 * データベースに接続
+		 */
+		Connection con = getConnection();
+
+		/**
+		 * 全件取得
+		 */
+		PreparedStatement st = con.prepareStatement("select * from questions");
+		ResultSet rs = st.executeQuery();
+
+		/**
+		 * 取り出した値をbeanに保存
+		 */
+		while(rs.next()) {
+			q = new Question();
+			q.setQuestionId(rs.getInt("id"));
+			q.setText(rs.getString("text"));
+			q.setChoicesA(rs.getString("choices_a"));
+			q.setChoicesB(rs.getString("choices_b"));
+			qList.add(q);
+		}
+
+		st.close();
+		con.close();
+		return qList;
 	}
 }

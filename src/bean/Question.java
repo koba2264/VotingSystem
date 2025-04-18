@@ -82,4 +82,6 @@ public class Question implements java.io.Serializable {
 	public void setQuestionId(int questionId) {
 		this.questionId = questionId;
 	}
+
 }
+

@@ -1,14 +1,24 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="bean.Question" %>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+    <title>問題表示</title>
 </head>
 <body>
-	正解
+    <%
+        Question question = (Question) request.getAttribute("question");
+    %>
+    <h1>問題</h1>
+    <p><%= question.getText() %></p>
+
+    <h2>選択肢</h2>
+    <ul>
+        <li><%= question.getChoicesA() %></li>
+        <li><%= question.getChoicesB() %></li>
+    </ul>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="js/result.js"></script>
 </html>
+
+

@@ -21,25 +21,35 @@ public class WebSocketServer {
     public String onMessage(String message,Session senderSession) {
     	System.out.println("WebSocketで受信したメッセージ：" + message);
     	// データベース接続
-    	CountDAO dao = new CountDAO();
-    	Count count = null;
-    	try {
-    		count = dao.serch(1);
-    	} catch (Exception e) {
-    		e.printStackTrace();
+    	if (message.equals("newConnection")){
+    		CountDAO dao = new CountDAO();
+    		Count count = null;
+    		try {
+    			count = dao.serch(1);
+    		} catch (Exception e) {
+    			e.printStackTrace();
+    		}
+    		// 待機画面にいる人数
+    		String tmp = String.valueOf(sessions.size());
+
+    		// 待機人数受け取り
+    		String result = String.valueOf(count.sum());
+    		// 保存しているセッションIDの数繰り返す
+    		for (Session session : sessions) {
+    			// セッションが開いている場合
+    			if (session.isOpen()) {
+    				// 人数を送る
+    				session.getAsyncRemote().sendText(tmp);
+    			}
+    		}
+    	} else if (message.equals("goResult")) {
+    		for (Session session : sessions) {
+    			// セッションが開いている場合
+    			if (session.isOpen()) {
+    				session.getAsyncRemote().sendText("goResult");
+    			}
+    		}
     	}
-//    	待機画面にいる人数
-    	String tmp = String.valueOf(sessions.size());
-    	// 待機人数受け取り
-    	String result = String.valueOf(count.sum());
-    	// 保存しているセッションIDの数繰り返す
-        for (Session session : sessions) {
-        	// セッションが開いている場合
-            if (session.isOpen()) {
-//            	人数を送る
-                session.getAsyncRemote().sendText(tmp);
-            }
-        }
         return null;
     }
 

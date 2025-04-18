@@ -8,6 +8,7 @@ package bean;
 public class Question implements java.io.Serializable {
 	private static int id = 1;
 
+	private int questionId;
 	/** 問題文 */
 	private String text;
 	/** 選択肢A */
@@ -69,5 +70,13 @@ public class Question implements java.io.Serializable {
 
 	public static int getId() {
 		return Question.id;
+	}
+
+	public int getQuestionId() {
+		return questionId;
+	}
+
+	public void setQuestionId(int questionId) {
+		this.questionId = questionId;
 	}
 }

@@ -1,14 +1,17 @@
+/**
+ * admin画面のjavaScript
+ */
+
+
 $(function() {
+	var buttonElm = document.getElementById('result');
+	var i = "ii";
     var url = "ws://localhost:8080/VotingSystem/WebSocketServer";
     var ws = new WebSocket(url);
     var flag = false;
 
     ws.onmessage = function(receive) {
-    	if (receive.data=="goResult") {
-    		window.location.href = "{Result.action}";
-    	} else {
-    		$("#count").text(receive.data);
-    	}
+        $("#current_text").text(receive.data);
         console.log(receive.data);
     };
 
@@ -16,4 +19,9 @@ $(function() {
       ws.send("newConnection");
       console.log("接続");
     };
+
+    buttonElm.addEventListener('click', function() {
+    	console.log(i);
+    	ws.send("goResult");
+    });
   });

@@ -9,7 +9,7 @@ public class VotingAction extends Action {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 //		test
-		return null;
+		return "WEB-INF/mon.jsp";
 	}
 
 }

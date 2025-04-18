@@ -10,10 +10,12 @@
 <%-- 問題表示 --%>
 <h1>${ sessionScope.q.text }</h1><br>
 <%--選択肢2つ表示。 --%>
-<input type = "submit" value = "${ sessionScope.q.choicesA }">
-<input type = "submit" value = "${ sessionScope.q.choicesB }">
-
-
+<form action="StandBy.action" method="post">
+	<input type="radio" id="choices" name="choice" value="A" checked />
+    <label for="A">${ sessionScope.q.choicesA }</label>
+    <input type="radio" id="choices" name="choice" value="B" checked />
+    <label for="B">${ sessionScope.q.choicesB }</label>
+</form>
 
 </body>
 </html>

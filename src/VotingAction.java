@@ -24,7 +24,7 @@ public class VotingAction extends Action {
 		Question q = dao.question();
 
 		session.setAttribute("q", q);
-		return "start.jsp";
+		return "WEB-INF/Question.jsp";
 
 	}
 

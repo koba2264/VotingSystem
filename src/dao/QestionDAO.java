@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import bean.Question;
 
 public class QestionDAO extends DAO {
@@ -14,6 +15,7 @@ public class QestionDAO extends DAO {
 		 * beanのQestionクラスをインスタンス化。idを取得
 		 */
 		Question q = new Question();
+
 		int id = Question.getId();
 		/**
 		 * データベースに接続

@@ -11,12 +11,21 @@ public class VotingAction extends Action {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+		/**
+		 * セッション取得
+		 */
+		HttpSession session = request.getSession();
+
+		/**
+		 * daoから問題文、選択肢A、選択肢Bを取り出しQestion型のqに保存
+		 */
 		QestionDAO dao = new QestionDAO();
 		Question q = dao.question();
-		HttpSession session = request.getSession();
-		session.setAttribute("q", q);
 
-		return "WEB-INF/mon.jsp";
+		session.setAttribute("q", q);
+		return "start.jsp";
+
 	}
 
 }

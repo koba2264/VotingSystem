@@ -4,8 +4,8 @@
 
 
 $(function() {
-	var buttonElm = document.getElementById('result');
-	var i = "ii";
+	var resultElm = document.getElementById('result');
+	var votingElm = document.getElementById('voting');
     var url = "ws://localhost:8080/VotingSystem/WebSocketServer";
     var ws = new WebSocket(url);
     var flag = false;
@@ -20,8 +20,12 @@ $(function() {
       console.log("接続");
     };
 
-    buttonElm.addEventListener('click', function() {
-    	console.log(i);
+    resultElm.addEventListener('click', function() {
     	ws.send("goResult");
     });
+
+    votingElm.addEventListener('click', function() {
+    	ws.send("goVoting");
+    });
+
   });

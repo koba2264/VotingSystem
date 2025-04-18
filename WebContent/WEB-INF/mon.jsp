@@ -8,6 +8,7 @@
 </head>
 <body>
 	問題
+	${ sessionScope.q.text }
 
 </body>
 </html>

@@ -24,5 +24,5 @@
 	<button id="voting">出題</button>
 </body>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/stand_by.js"></script>
+    <script src="js/admin.js"></script>
 </html>

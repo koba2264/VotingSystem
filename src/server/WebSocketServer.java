@@ -9,44 +9,44 @@ import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
-import bean.Count;
-import dao.CountDAO;
-
 @ServerEndpoint("/WebSocketServer")
 public class WebSocketServer {
 
-	private static final Set<Session> sessions = new CopyOnWriteArraySet<>();
+//	待機状態のセッションを保存する変数
+	private static final Set<Session> StandBySessions = new CopyOnWriteArraySet<>();
+//	解答画面表示状態のセッションを保存する変数
+	private static final Set<Session> ResultSessions = new CopyOnWriteArraySet<>();
 
     @OnMessage
     public String onMessage(String message,Session senderSession) {
     	System.out.println("WebSocketで受信したメッセージ：" + message);
     	// データベース接続
-    	if (message.equals("newConnection")){
-    		CountDAO dao = new CountDAO();
-    		Count count = null;
-    		try {
-    			count = dao.serch(1);
-    		} catch (Exception e) {
-    			e.printStackTrace();
-    		}
+    	if (message.equals("StandBy")){
+    		StandBySessions.add(senderSession);
     		// 待機画面にいる人数
-    		String tmp = String.valueOf(sessions.size());
-
-    		// 待機人数受け取り
-    		String result = String.valueOf(count.sum());
+    		String tmp = String.valueOf(StandBySessions.size());
     		// 保存しているセッションIDの数繰り返す
-    		for (Session session : sessions) {
+    		for (Session session : StandBySessions) {
     			// セッションが開いている場合
     			if (session.isOpen()) {
     				// 人数を送る
     				session.getAsyncRemote().sendText(tmp);
     			}
     		}
+    	} else if (message.equals("Result")) {
+    		ResultSessions.add(senderSession);
     	} else if (message.equals("goResult")) {
-    		for (Session session : sessions) {
+    		for (Session session : StandBySessions) {
     			// セッションが開いている場合
     			if (session.isOpen()) {
-    				session.getAsyncRemote().sendText("goResult");
+    				session.getAsyncRemote().sendText(message);
+    			}
+    		}
+    	} else if (message.equals("goVoting")) {
+    		for (Session session : ResultSessions) {
+    			// セッションが開いている場合
+    			if (session.isOpen()) {
+    				session.getAsyncRemote().sendText(message);
     			}
     		}
     	}
@@ -63,7 +63,6 @@ public class WebSocketServer {
     public void onOpen(Session session) {
         // セッションが確立した際の処理を実装
     	// セッションIDを保存
-    	sessions.add(session);
     	System.out.println("WebSocketセッション確立");
     }
 
@@ -71,7 +70,17 @@ public class WebSocketServer {
     public void onClose(Session session) {
     	// セッションを終了する際の処理を実装
     	// セッションIDを削除
-    	sessions.remove(session);
+    	StandBySessions.remove(session);
+    	ResultSessions.remove(session);
+		String tmp = String.valueOf(StandBySessions.size());
+		// 保存しているセッションIDの数繰り返す
+		for (Session session1 : StandBySessions) {
+			// セッションが開いている場合
+			if (session1.isOpen()) {
+				// 人数を送る
+				session.getAsyncRemote().sendText(tmp);
+			}
+		}
         System.out.println("WebSocketセッション終了");
     }
 }

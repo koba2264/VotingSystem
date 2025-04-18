@@ -7,7 +7,6 @@ public class ResultAction extends Action {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-//		te
 		return "WEB-INF/ans.jsp";
 	}
 

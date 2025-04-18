@@ -9,18 +9,22 @@
 </head>
 <body>
 <%-- 問題表示 --%>
-<h1>${ sessionScope.q.text }</h1><br>
-<body>
+  <div class="text">
+	<h1>${ sessionScope.q.text }</h1><br>
+  </div>
   <div class="container">
-    <!-- 左の選択肢（猫派） -->
-    <form class="choice-form" action="ChoiceServlet" method="post">
+    <!-- 左の選択肢 -->
+    <form class="choice-form" action="StandBy.action" method="post">
       <button type="submit" name="choice" value="A" class="choice-button left-button">${ sessionScope.q.choicesA }</button>
     </form>
 
-    <!-- 右の選択肢（犬派） -->
-    <form class="choice-form" action="ChoiceServlet" method="post">
+    <!-- 右の選択肢 -->
+    <form class="choice-form" action="StandBy.action" method="post">
       <button type="submit" name="choice" value="B" class="choice-button right-button">${ sessionScope.q.choicesB }</button>
     </form>
   </div>
 </body>
+<script>
+window.confirm("これが確認ダイアログです。");
+</script>
 </html>

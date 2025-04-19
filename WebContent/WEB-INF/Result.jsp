@@ -7,7 +7,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>グラフ</title>
+  <title>結果発表</title>
   <link rel="stylesheet" href="css/result.css" type="text/css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -79,6 +79,12 @@
           let obj = document.getElementById(elementId);
           let current = start;
           let increment = end > start ? 1 : -1;
+          //値がゼロのときアニメーションさせない
+          if (end === 0) {
+        	    obj.textContent = "0%";
+        	    return;
+        	}
+
           let timer = setInterval(function() {
               current += increment;
               obj.textContent = current + "%";
@@ -101,7 +107,7 @@
       // 右(データ割合,表示するまでの時間)(B)
       animatePercentage(avgB, 3000, "percentageright");
       // グラフ＆アニメ終了後に勝者エフェクト発動
-      setTimeout(showWinner, 3000);
+      setTimeout(showWinner, 4000);
 
 
 </script>

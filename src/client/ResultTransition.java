@@ -35,7 +35,7 @@ public class ResultTransition {
             container.connectToServer(ResultTransition.class, URI.create(uri));
             System.out.println("Connected to server");
         } catch (Exception e) {
-            e.printStackTrace();
+        	e.printStackTrace();
         }
     }
 }

@@ -1,0 +1,54 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: sans-serif;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.choice-form {
+  flex: 1;
+  margin: 0;
+  padding: 0;
+}
+
+.choice-button {
+  width: 100%;
+  height: 100%;
+  font-size: 2.5rem;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.left-button {
+  background-color: #e74c3c;
+}
+
+.right-button {
+  background-color: #3498db;
+}
+
+.choice-button:hover {
+  filter: brightness(1.2);
+}
+.text {
+  color: white;
+  text-align: center;
+  z-index : 1;
+  width : 100%;
+  height: 5%;
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+}

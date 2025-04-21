@@ -1,12 +1,36 @@
 body {
   margin: 0;
   font-family: "Dela Gothic One", sans-serif;
-  background: linear-gradient(to right,#FF0000,#FFEEFF,#005FFF);
+  background: linear-gradient(to right,#ff3399,#FFEEFF,#00ffff );
   color: white;
   text-align: center;
   overflow: hidden;
 
 }
+.loading-screen {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-size: 7rem;
+  text-shadow:
+    0 0 5px #000000;
+  font-family: 'Dela Gothic One', sans-serif;
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(to right,#ff3399,#FFEEFF,#00ffff );
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+.loading-screen.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
 
 .container {
   position: relative;
@@ -22,9 +46,8 @@ body {
   top: 5%;
   font-size: 4rem;
   text-shadow:
-    0 0 5px #000000,
-    0 0 40px #ff3399,
-    0 0 80px #ff3399;
+    0 0 5px #000000;
+  margin: 0 auto;
 }
 
 .chart {
@@ -32,13 +55,10 @@ body {
 }
 
 canvas {
-  position: relative;
+  position: absolute;
   max-width: 500px;
   max-height: 500px;
-  z-index: 2;
-  top: 50%:
-  left: 50%;
-
+  z-index: 1;
 }
 
 .percent {
@@ -78,11 +98,12 @@ canvas {
 
 .vs {
   position: absolute;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 70px;
   font-weight: bold;
-  z-index: 3;
+  z-index: 2;
   color: #d9c511;
   text-shadow:
     0 0 5px #fff,
@@ -93,11 +114,12 @@ canvas {
 }
 
 .size {
+  position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
   width: 400px;
   height: 400px;
+  margin: 0 auto;
 }
 .bmon{
   color: #ffffff;
@@ -122,6 +144,34 @@ canvas {
     0 0 40px #ff3399,
     0 0 80px #ff3399;
 }
+.bnum{
+  color: #ffffff;
+  position: absolute;
+  right: 15%;
+  top: 70%;
+  font-size: 50px;
+  text-shadow:
+    0 0 5px #000000,
+    0 0 40px #00ffff,
+    0 0 80px #00ffff;
+}
+.anum{
+  position: absolute;
+  left: 15%;
+  top: 70%;
+  font-size: 50px;
+  text-shadow:
+    0 0 5px #000000,
+    0 0 40px #ff3399,
+    0 0 80px #ff3399;
+}
+.num {
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
+.num.show {
+  opacity: 1;
+}
 @keyframes flicker {
   0% { opacity: 1; }
   50% { opacity: 0.7; }
@@ -138,8 +188,8 @@ canvas {
   100% { opacity: 1; text-shadow: 0 0 50px #ff66cc; }
 }
 .winner-percent {
-  top: 50%;
-  font-size: 150px;
+  top: 48%;
+  font-size: 130px;
   text-shadow:
     0 0 5px #ffffff,
     0 0 10px #ffffff,
@@ -160,6 +210,16 @@ canvas {
   animation: glowB 1s infinite alternate;
   color: #ffffff;
 }
+.background-winner-a {
+  background-color: rgba(255, 255, 255, 0.562);
+  background: linear-gradient(to right,#ff3399,#FFEEFF,#ff3399);
+}
+
+.background-winner-b {
+  opacity: 0.9;
+  background: linear-gradient(to right,#00ffff,#FFEEFF,#00ffff);
+}
+
 @keyframes glowA {
   from {
     text-shadow:

@@ -15,61 +15,110 @@
   <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Kaisei+Opti&family=RocknRoll+One&display=swap" rel="stylesheet">
 </head>
 <body>
+<div id="result" class="loading-screen">
+  結果は……
+</div>
 <div class="container">
+	<!-- 問題 -->
 	<div class="title">${ sessionScope.q.text }</div>
+	<!-- vsマーク -->
     <div class="chart">
-    	<div class="vs">VS</div>
+    	<div class="vs">対</div>
     </div>
+    <!-- Aの問題文 -->
     <div class="amon">${ sessionScope.q.choicesA }</div>
+    <!-- Aの％ -->
    	<div class="percent right" id="percentageright">0%</div>
+    <!-- Aの人数 -->
+    <div class="anum num" id="anum"></div>
+    <!-- Bの問題文 -->
 	<div class="bmon" >${ sessionScope.q.choicesB }</div>
+    <!-- Bの％ -->
     <div class="percent left" id="percentageleft" >0%</div>
+    <!-- Bの人数 -->
+	<div class="bnum num" id="bnum"></div>
+   	<!-- グラフ -->
 	<div class='size'>
 		<canvas id="myChart"></canvas>
   	</div>
 </div>
 
   <script>
+  	  //平均値
  	  const avgA = ${ sessionScope.avgA };
  	  const avgB = ${ sessionScope.avgB };
+ 	  //合計人数
+ 	  const rawA = ${ sessionScope.A };
+ 	  const rawB = ${ sessionScope.B };
+ 	  const intA = Math.round(rawA);
+ 	  const intB = Math.round(rawB);
+ 	 window.addEventListener("DOMContentLoaded", () => {
+ 		  const loading = document.getElementById("result");
+ 		  const chartCanvas = document.getElementById("myChart").parentElement;
+ 		  const allResultElements = document.querySelector(".container");
 
- //グラフ
-	  var ctx = document.getElementById("myChart").getContext("2d");
- 	  //グラフカラーA
-	  var gradientA = ctx.createLinearGradient(0, 0,0, 300);
-	  gradientA.addColorStop(0, "#C299FF");
-	  gradientA.addColorStop(1, "#FFABCE");
-	  //グラフカラーB
-	  var gradientB = ctx.createLinearGradient(0, 0, 0, 300);
-	  gradientB.addColorStop(0, "#FF773E");
-	  gradientB.addColorStop(1, "#FFC7AF");
+ 		  document.getElementById("anum").textContent = intA + "人";
+ 		  document.getElementById("bnum").textContent = intB + "人";
+ 		  // 初期状態で非表示にしておく
+ 		  chartCanvas.style.display = "none";
+ 		  allResultElements.style.display = "none";
 
-	  var myChart = new Chart(ctx, {
-	    //円グラフの指定
-		type: 'pie',
-	    data: {
-	      //labels: ["B","A"],
-	      datasets: [{
-	       //グラフの色
-	      backgroundColor: [gradientA, gradientB],
-	       //データ割合
-	      data: [${ sessionScope.B },${ sessionScope.A }],
-	      //外枠
-	      borderWidth: 0.6
-	      }]
-	    },
-	    options: {
-	      title: {
-	        //display: true,
-	  		text: '究極の選択',
-	      },
-	      animation: {
-	        //グラフの表示にかかる時間
-	  		duration: 4000,
-	      },
-	    }
-	  });
-      // パーセンテージアニメーション
+ 		  // 結果表示の演出
+ 		  setTimeout(() => {
+ 		    loading.classList.add("hide");
+
+ 		    // 結果画面を表示
+ 		    chartCanvas.style.display = "flex";
+ 		    allResultElements.style.display = "flex";
+
+ 		   //グラフ
+ 		    var ctx = document.getElementById("myChart").getContext("2d");
+ 		    //グラフカラーA
+ 		  	var gradientA = ctx.createLinearGradient(0, 0,0, 300);
+ 		  	gradientA.addColorStop(0, "#00ffff");
+ 		  	gradientA.addColorStop(1, "#005FFF");
+
+ 		  	//グラフカラーB
+ 		  	var gradientB = ctx.createLinearGradient(0, 0, 0, 300);
+
+ 		  	gradientB.addColorStop(0, "#FFBEDA");
+ 		  	gradientB.addColorStop(1, "#ff3399");
+
+ 		  	var myChart = new Chart(ctx, {
+ 		  	//円グラフの指定
+ 		  	type: 'pie',
+ 		  	  data: {
+ 		  	   //labels: ["B","A"],
+ 		  	   datasets: [{
+ 		  	   //グラフの色
+ 		  	   backgroundColor: [gradientA, gradientB],
+ 		  	   //データ割合
+ 		  	   data: [${ sessionScope.B },${ sessionScope.A }],
+ 		  	   //外枠
+ 		  	   borderWidth: 0.6
+ 		  	   }]
+ 		  	},
+ 		  	options: {
+ 		  	 title: {
+ 		  	 //display: true,
+ 		  	   text: '究極の選択',
+ 		  	 },
+ 		  	 animation: {
+ 		  	 //グラフの表示にかかる時間
+ 		  	  duration: 5500,
+ 		  	 },
+ 		  	}
+ 		   });
+ 		    // 左(データ割合,表示するまでの時間)(A)
+ 		    animatePercentage(avgA, 4500, "percentageleft");
+ 		    // 右(データ割合,表示するまでの時間)(B)
+ 		    animatePercentage(avgB, 4500, "percentageright");
+ 		    // 勝者表示
+ 		    setTimeout(showWinner, 5000);
+ 		  },3500); // 3秒待ってから実行
+ 		});
+
+// パーセンテージアニメーション
       function animatePercentage(target, duration, elementId) {
     	  target = Math.round(target);
           let start = 0;
@@ -84,7 +133,6 @@
         	    obj.textContent = "0%";
         	    return;
         	}
-
           let timer = setInterval(function() {
               current += increment;
               obj.textContent = current + "%";
@@ -93,22 +141,21 @@
               }
           }, stepTime);
       }
+
+//勝者の演出
       function showWinner() {
     	  if (avgA > avgB) {
     	    document.getElementById("percentageleft").classList.add("winner-percent");
-    	    document.querySelector(".title").classList.add("title-winner-a");
+    	    document.querySelector(".amon").classList.add("title-winner-a");
+            document.body.classList.add("background-winner-a");
     	  } else if (avgB > avgA) {
     	    document.getElementById("percentageright").classList.add("winner-percent");
-    	    document.querySelector(".title").classList.add("title-winner-b");
+    	    document.querySelector(".bmon").classList.add("title-winner-b");
+            document.body.classList.add("background-winner-b");
     	  }
+    	  document.getElementById("anum").classList.add("show");
+    	  document.getElementById("bnum").classList.add("show");
     	}
-      // 左(データ割合,表示するまでの時間)(A)
-      animatePercentage(avgA, 3000, "percentageleft");
-      // 右(データ割合,表示するまでの時間)(B)
-      animatePercentage(avgB, 3000, "percentageright");
-      // グラフ＆アニメ終了後に勝者エフェクト発動
-      setTimeout(showWinner, 4000);
-
 
 </script>
 </body>

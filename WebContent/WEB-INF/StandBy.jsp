@@ -10,21 +10,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Kaisei+Opti&family=RocknRoll+One&display=swap" rel="stylesheet">
 </head>
-<body>
-  <div id = "target">
+<body id = "target">
+  <div>
 	  <div class="title">投票中・・・</div>
 	  <div id="count" class="text"></div>
 	  <img src="vacation.gif" class="gif">
   </div>
 </body>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/stand_by.js"></script>
     <script>
+    	var bodyElm = document.getElementById("target");
     	var ans = "${ sessionScope.ans }"
     	if (ans == "A") {
-	    	$('#target').addClass("red");
+    		bodyElm.style.background = "linear-gradient(to right,#FF3399,#FFEEFF,#FF3399)";
     	} else {
-    		$('#target').addClass("blue");
+    		bodyElm.style.background = "linear-gradient(to right,#54acdb,#FFEEFF,#54acdb)";
     	}
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/stand_by.js"></script>
 </html>

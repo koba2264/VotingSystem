@@ -17,7 +17,7 @@
 		</select>
 		<input type="submit" value="送信">
 	</form>
-
+	<p id="standbycount"></p>
 	<button id="result">解答</button>
 	<button id="voting">出題</button>
 </body>

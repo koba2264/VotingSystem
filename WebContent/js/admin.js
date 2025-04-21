@@ -11,12 +11,12 @@ $(function() {
     var flag = false;
 
     ws.onmessage = function(receive) {
-        $("#current_text").text(receive.data);
+        $("#standbycount").text('待機人数 : '+ receive.data + '人');
         console.log(receive.data);
     };
 
     ws.onopen = function() {
-      ws.send("newConnection");
+      ws.send("getStandByCount");
       console.log("接続");
     };
 

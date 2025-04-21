@@ -29,6 +29,8 @@ public class StandByAction extends Action {
 				answer = Answer.B;
 			}
 
+			session.setAttribute("ans", ans);
+
 			CountDAO dao = new CountDAO();
 			dao.vote(answer);
 			System.out.println("投票");

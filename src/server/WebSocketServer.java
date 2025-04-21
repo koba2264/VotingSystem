@@ -18,6 +18,7 @@ public class WebSocketServer {
 	private static final Set<Session> StandBySessions = new CopyOnWriteArraySet<>();
 //	解答画面表示状態のセッションを保存する変数
 	private static final Set<Session> ResultSessions = new CopyOnWriteArraySet<>();
+	private static Session AdminSession = null;
 
     @OnMessage
     public String onMessage(String message,Session senderSession) {
@@ -34,6 +35,9 @@ public class WebSocketServer {
     				// 人数を送る
     				session.getAsyncRemote().sendText(tmp);
     			}
+    		}
+    		if (AdminSession != null) {
+    			AdminSession.getAsyncRemote().sendText(tmp);
     		}
     	} else if (message.equals("Result")) {
     		ResultSessions.add(senderSession);
@@ -52,6 +56,10 @@ public class WebSocketServer {
     				session.getAsyncRemote().sendText(message);
     			}
     		}
+    	} else if (message.equals("getStandByCount")) {
+    		String tmp = String.valueOf(StandBySessions.size());
+    		AdminSession = senderSession;
+    		return tmp;
     	}
         return null;
     }
@@ -81,8 +89,11 @@ public class WebSocketServer {
 			// セッションが開いている場合
 			if (session1.isOpen()) {
 				// 人数を送る
-				session.getAsyncRemote().sendText(tmp);
+				session1.getAsyncRemote().sendText(tmp);
 			}
+		}
+		if (AdminSession != null) {
+			AdminSession.getAsyncRemote().sendText(tmp);
 		}
         System.out.println("WebSocketセッション終了");
     }

@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  font-family: "Dela Gothic One", sans-serif;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+.red {
+  background: linear-gradient(to right,#FF3399,#FFEEFF,#FF3399);
+}
+
+.blue {
+  background: linear-gradient(to right,#OOFFFF,#FFEEFF,#00FFFF);
+}
+
+.title {
+  /* top:  5%; */
+  font-size: 8rem;
+  text-shadow:
+    0 0 5px #000000,
+    0 0 40px #ff3399,
+    0 0 80px #ff3399;
+}
+
+.gif {
+  height: 25%;
+  width: 25%;
+}
+
+.text {
+  font-size: 2rem;
+  text-shadow:
+  0 0 5px #000000,
+  0 0 40px #00ffff,
+  0 0 80px #0080ff;
+}

@@ -7,7 +7,7 @@ $(function() {
     	if (receive.data=="goResult") {
     		window.location.href = "Result.action";
     	} else {
-    		$("#count").text(receive.data);
+    		$("#count").text('現在' + receive.data + 'グループが投票済み');
     	}
         console.log(receive.data);
     };

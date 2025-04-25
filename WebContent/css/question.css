@@ -1,27 +1,34 @@
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
+  height: 100vh;
+  width: 100vw;
   font-family: sans-serif;
+  overflow: hidden;
+  text-shadow:
+    0 0 5px #000000,
+    0 0 10px #000000;
 }
-
 .container {
   display: flex;
   height: 100vh;
   width: 100vw;
 }
-
 .choice-form {
   flex: 1;
   margin: 0;
   padding: 0;
+  border: none;
 }
-
 .choice-button {
+  border: none;
   width: 100%;
   height: 100%;
   font-size: 2.5rem;
   color: white;
+  text-shadow:
+    0 0 5px #000000,
+    0 0 10px #000000;
   border: none;
   cursor: pointer;
   display: flex;
@@ -29,15 +36,18 @@ html, body {
   justify-content: center;
   transition: all 0.3s ease;
 }
-
 .left-button {
-  background-color: #e74c3c;
+  background-image: url("../img/red.jpg");
+  background-position-y: 21%;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-
 .right-button {
-  background-color: #3498db;
+  background-image: url("../img/back.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-
 .choice-button:hover {
   filter: brightness(1.2);
 }
@@ -46,9 +56,14 @@ html, body {
   text-align: center;
   z-index : 1;
   width : 100%;
-  height: 5%;
+  height: 1%;
   position: absolute;
   right: 0;
   left: 0;
   margin: 0 auto;
+}
+#title{
+  margin-top:40px;
+  font-size: 80px;
+  backdrop-filter: sepia(90%);
 }

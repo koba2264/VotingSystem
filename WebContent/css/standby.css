@@ -1,37 +1,43 @@
 body {
   margin: 0;
   font-family: "Dela Gothic One", sans-serif;
-  color: white;
-  text-align: center;
-  overflow: hidden;
 }
-
 .red {
-  background: linear-gradient(to right,#FF3399,#FFEEFF,#FF3399);
+  background-image: url("../img/red6.jpg");
+  background-size: cover;
+  background-position-y: 60%;
 }
-
 .blue {
-  background: linear-gradient(to right,#OOFFFF,#FFEEFF,#00FFFF);
+  background-size: cover;
+  background-image: url("../img/back.jpg");
+  background-position-y: 65%;
 }
-
 .title {
   /* top:  5%; */
   font-size: 8rem;
   text-shadow:
-    0 0 5px #000000,
-    0 0 40px #ff3399,
-    0 0 80px #ff3399;
+  0 0 5px #000000,
+  0 0 20px #00ffb0,
+  0 0 80px #ffffff;
 }
-
 .gif {
-  height: 25%;
-  width: 25%;
+  height: 20em;
+  width: 20em;
 }
-
 .text {
   font-size: 2rem;
   text-shadow:
   0 0 5px #000000,
   0 0 40px #00ffff,
   0 0 80px #0080ff;
+}
+#target{
+  background-repeat: no-repeat;
+  text-align: center;
+  color: white;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

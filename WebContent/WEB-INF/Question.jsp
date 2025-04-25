@@ -10,21 +10,17 @@
 <body>
 <%-- 問題表示 --%>
   <div class="text">
-	<h1>${ sessionScope.q.text }</h1><br>
+	<h1 id="title">${ sessionScope.q.text }</h1><br>
   </div>
   <div class="container">
     <!-- 左の選択肢 -->
     <form class="choice-form" action="StandBy.action" method="post">
       <button type="submit" name="choice" value="A" class="choice-button left-button">${ sessionScope.q.choicesA }</button>
     </form>
-x
     <!-- 右の選択肢 -->
     <form class="choice-form" action="StandBy.action" method="post">
       <button type="submit" name="choice" value="B" class="choice-button right-button">${ sessionScope.q.choicesB }</button>
     </form>
   </div>
 </body>
-<script>
-window.confirm("これが確認ダイアログです。");
-</script>
 </html>

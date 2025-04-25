@@ -10,8 +10,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Kaisei+Opti&family=RocknRoll+One&display=swap" rel="stylesheet">
 </head>
-<body>
-  <div id = "target">
+<body id = "target">
+  <div>
 	  <div class="title">投票中・・・</div>
 	  <div id="count" class="text"></div>
 	  <img src="vacation.gif" class="gif">

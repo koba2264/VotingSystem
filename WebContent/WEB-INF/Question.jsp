@@ -26,8 +26,8 @@
     </div>
   </div>
   <div class="popup">
-    <div class="popup-text-img">
-      <p class="popup-text">本当に投票しますか</p>
+    <div>
+      <p class="popup-text">に投票しますか</p>
     </div>
     <div class="popup-button">
         <button class="ok-button">OK！</button>

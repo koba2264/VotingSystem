@@ -1,3 +1,4 @@
+
 html, body {
   margin: 0;
   padding: 0;
@@ -8,11 +9,12 @@ html, body {
   text-shadow:
     0 0 5px #000000,
     0 0 10px #000000;
+
 }
 .container {
-  display: flex;
-  height: 100vh;
-  width: 100vw;
+    display: flex;
+    height: 100%;
+    width: 100%;
 }
 .choice-form {
   flex: 1;
@@ -50,20 +52,105 @@ html, body {
 }
 .choice-button:hover {
   filter: brightness(1.2);
+
+.choice {
+    /* flex: 1; */
+    margin: 0;
+    padding: 0;
+    width: 50%;
+    height: 100%;
+    font-size: 2.5rem;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-family: "Dela Gothic One", sans-serif;
+    z-index: 1;
 }
+
+.left {
+    background-color: #e74c3c;
+}
+
+.right {
+    background-color: #3498db;
+}
+
+.grayout {
+    filter: brightness(50%);
+}
+
+.highlight {
+    filter: brightness(1.2);
+}
+
+/* .choice-button:hover {
+} */
+
 .text {
-  color: white;
-  text-align: center;
-  z-index : 1;
-  width : 100%;
-  height: 1%;
-  position: absolute;
-  right: 0;
-  left: 0;
-  margin: 0 auto;
+    color: white;
+    text-align: center;
+    z-index : 2;
+    width : 100%;
+    height: 5%;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
 }
 #title{
   margin-top:40px;
   font-size: 80px;
   backdrop-filter: sepia(90%);
+}
+
+
+/* 追記 */
+.popup {
+    width: auto;
+    height: auto;
+    text-align: center;
+    border-radius: 5px;
+    background-color: white;
+    position:absolute;
+    top: 33%;
+    left: 33%;
+    right: 33%;
+    z-index: -1;
+    padding: 20px;
+}
+
+
+/* 川口追記 */
+/* テキストと画像 */
+.popup-text{
+    margin-top: auto;
+    color: black;
+    font-size: 30px;
+    line-break: anywhere;
+}
+
+/* ボタン全体のcss */
+.popup-button{
+    /* width: 80%;
+    height: 60%; */
+    margin-left: 10%;
+    margin-right: 10%;
+}
+/* okボタン */
+.ok-button {
+    background-color: #fd7902;
+    color: white;
+    width: 45%;
+    height: 50px;
+}
+/* キャンセルボタン */
+.cancel-button{
+    background-color: gray;
+    color: white;
+    width: 45%;
+    height: 50px;
 }

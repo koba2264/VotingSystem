@@ -7,11 +7,16 @@ body {
   background-size: cover;
   background-position-y: 60%;
 }
+
 .blue {
   background-size: cover;
   background-image: url("../img/back.jpg");
   background-position-y: 65%;
-}
+
+.blue2 {
+  background: linear-gradient(to right,#O0ffff,#FFEEFF,#00ffff);
+
+
 .title {
   /* top:  5%; */
   font-size: 8rem;

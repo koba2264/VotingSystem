@@ -37,4 +37,17 @@
   </div>
 </body>
 <script src="js/select.js"></script>
+<script>
+  const choiceElm = document.querySelectorAll(".choice");
+  const popupTxtElm = document.querySelector('.popup-text');
+  for (const elm of choiceElm) {
+    elm.addEventListener('click',() => {
+      if (elm.classList.contains('left')) {
+        popupTxtElm.innerHTML = '<p class="popup-text">${ sessionScope.q.choicesA }に投票しますか</p>';
+      } else {
+        popupTxtElm.innerHTML = '<p class="popup-text">${ sessionScope.q.choicesB }に投票しますか</p>';
+      }
+    });
+  };
+</script>
 </html>

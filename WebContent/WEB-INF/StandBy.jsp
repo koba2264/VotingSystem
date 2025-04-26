@@ -21,9 +21,11 @@
     	var bodyElm = document.getElementById("target");
     	var ans = "${ sessionScope.ans }"
     	if (ans == "A") {
-    		bodyElm.style.background = "linear-gradient(to right,#FF3399,#FFEEFF,#FF3399)";
+    		// bodyElm.style.background = "linear-gradient(to right,#FF3399,#FFEEFF,#FF3399)";
+    		bodyElm.classList.add("red");
     	} else {
-    		bodyElm.style.background = "linear-gradient(to right,#54acdb,#FFEEFF,#54acdb)";
+    		// bodyElm.style.background = "linear-gradient(to right,#54acdb,#FFEEFF,#54acdb)";
+    		bodyElm.classList.add("blue");
     	}
     </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

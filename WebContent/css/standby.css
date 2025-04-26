@@ -1,7 +1,4 @@
-body {
-  margin: 0;
-  font-family: "Dela Gothic One", sans-serif;
-}
+
 .red {
   background-image: url("../img/red6.jpg");
   background-size: cover;
@@ -12,31 +9,9 @@ body {
   background-size: cover;
   background-image: url("../img/back.jpg");
   background-position-y: 65%;
-
-.blue2 {
-  background: linear-gradient(to right,#O0ffff,#FFEEFF,#00ffff);
-
-
-.title {
-  /* top:  5%; */
-  font-size: 8rem;
-  text-shadow:
-  0 0 5px #000000,
-  0 0 20px #00ffb0,
-  0 0 80px #ffffff;
 }
-.gif {
-  height: 20em;
-  width: 20em;
-}
-.text {
-  font-size: 2rem;
-  text-shadow:
-  0 0 5px #000000,
-  0 0 40px #00ffff,
-  0 0 80px #0080ff;
-}
-#target{
+
+/* #target{
   background-repeat: no-repeat;
   text-align: center;
   color: white;
@@ -45,4 +20,34 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+} */
+
+body {
+  margin: 0;
+  font-family: "Dela Gothic One", sans-serif;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+.title {
+  /* top:  5%; */
+  font-size: 8rem;
+  text-shadow:
+    0 0 5px #000000,
+    0 0 40px #ff3399,
+    0 0 80px #ff3399;
+}
+
+.gif {
+  height: 25%;
+  width: 25%;
+}
+
+.text {
+  font-size: 2rem;
+  text-shadow:
+  0 0 5px #000000,
+  0 0 40px #00ffff,
+  0 0 80px #0080ff;
 }

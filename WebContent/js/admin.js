@@ -6,7 +6,7 @@
 $(function() {
 	var resultElm = document.getElementById('result');
 	var votingElm = document.getElementById('voting');
-    var url = "ws://54.226.220.20:8080/VotingSystem/WebSocketServer";
+    var url = "ws://localhost:8080/VotingSystem/WebSocketServer";
     var ws = new WebSocket(url);
     var flag = false;
 

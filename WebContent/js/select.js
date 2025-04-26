@@ -38,6 +38,7 @@ class ChoiceMove {
         // キャンセルボタンが押されたらポップアップを解除する
         canBtnElm.addEventListener('click', () => {
             this.popout();
+            this.popupFlag = false;
         })
 
         // okボタンが押されたらフォームを送信する

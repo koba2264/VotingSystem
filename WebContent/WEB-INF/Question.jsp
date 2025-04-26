@@ -13,17 +13,17 @@
 <body>
   <div class="text">
 
-	<h1 id="title">${ sessionScope.q.text }</h1><br>
+	<h1 id="title">${ sessionScope.question.text }</h1><br>
   </div>
   <div class="container">
     <!-- 左の選択肢 -->
     <div class="choice left">
-        ${ sessionScope.q.choicesA }
+        ${ sessionScope.question.choicesA }
     </div>
 
     <!-- 右の選択肢 -->
     <div class="choice right">
-        ${ sessionScope.q.choicesB }
+        ${ sessionScope.question.choicesB }
     </div>
   </div>
   <div class="popup">
@@ -43,9 +43,9 @@
   for (const elm of choiceElm) {
     elm.addEventListener('click',() => {
       if (elm.classList.contains('left')) {
-        popupTxtElm.innerHTML = '<p class="popup-text">${ sessionScope.q.choicesA }に投票しますか</p>';
+        popupTxtElm.innerHTML = '<p class="popup-text">${ sessionScope.question.choicesA }に投票しますか</p>';
       } else {
-        popupTxtElm.innerHTML = '<p class="popup-text">${ sessionScope.q.choicesB }に投票しますか</p>';
+        popupTxtElm.innerHTML = '<p class="popup-text">${ sessionScope.question.choicesB }に投票しますか</p>';
       }
     });
   };

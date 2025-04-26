@@ -22,7 +22,8 @@ public class CountDAO extends DAO {
 	 * @throws Exception
 	 */
 	public Count serch() throws Exception {
-		int id = Question.getId();
+		Question question = new Question();
+		int id = question.getId();
 		Count count = null;
 		Connection con = getConnection();
 
@@ -48,7 +49,8 @@ public class CountDAO extends DAO {
 	 * @throws Exception
 	 */
 	public int vote(Answer answer) throws Exception {
-		int id = Question.getId();
+		Question question = new Question();
+		int id = question.getId();
 		Connection con = getConnection();
 		PreparedStatement st = null;
 //		選択肢によって回数を増やす方を変更

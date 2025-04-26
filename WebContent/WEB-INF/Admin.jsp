@@ -8,11 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	${ sessionScope.q.text }
+	${ sessionScope.question.text }
 	<form action="QuestionSelection.action" method="post">
 		<select name="id">
-			<c:forEach var="Question" items="${ sessionScope.qList }">
-			<option value='${ Question.questionId }'>${ Question.questionId } : ${ Question.text }</option>
+			<c:forEach var="q" items="${ sessionScope.qList }">
+				<option value='${ q.questionId2 }'>${ q.questionId2 } : ${ q.text2 }</option>
 			</c:forEach>
 		</select>
 		<input type="submit" value="送信">

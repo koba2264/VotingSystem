@@ -12,7 +12,8 @@
 </head>
 <body>
   <div class="text">
-	<h1>${ sessionScope.q.text }</h1>
+
+	<h1 id="title">${ sessionScope.q.text }</h1><br>
   </div>
   <div class="container">
     <!-- 左の選択肢 -->

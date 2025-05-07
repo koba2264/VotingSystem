@@ -6,17 +6,13 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import bean.Question;
 
 public class QestionDAO extends DAO {
-	public Question question() throws Exception {
-		/**
-		 * beanのQestionクラスをインスタンス化。idを取得
-		 */
-		Question q = new Question();
+	public void question() throws Exception {
+		Question question = new Question();
 
-		int id = Question.getId();
+		int id = question.getId();
 		/**
 		 * データベースに接続
 		 */
@@ -33,13 +29,12 @@ public class QestionDAO extends DAO {
 		 * 取り出した値をbeanに保存
 		 */
 		rs.next();
-		q.setText(rs.getString("text"));
-		q.setChoicesA(rs.getString("choices_a"));
-		q.setChoicesB(rs.getString("choices_b"));
+		question.setText(rs.getString("text"));
+		question.setChoicesA(rs.getString("choices_a"));
+		question.setChoicesB(rs.getString("choices_b"));
 
 		st.close();
 		con.close();
-		return q;
 	}
 
 	/**
@@ -66,10 +61,10 @@ public class QestionDAO extends DAO {
 		 */
 		while(rs.next()) {
 			q = new Question();
-			q.setQuestionId(rs.getInt("id"));
-			q.setText(rs.getString("text"));
-			q.setChoicesA(rs.getString("choices_a"));
-			q.setChoicesB(rs.getString("choices_b"));
+			q.setQuestionId2(rs.getInt("id"));
+			q.setText2(rs.getString("text"));
+			q.setChoicesA2(rs.getString("choices_a"));
+			q.setChoicesB2(rs.getString("choices_b"));
 			qList.add(q);
 		}
 

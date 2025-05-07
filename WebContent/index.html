@@ -1,11 +1,36 @@
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>究極の選択</title>
+ <link rel="stylesheet" href="css/index.css" type="text/css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Kaisei+Opti&family=RocknRoll+One&display=swap" rel="stylesheet">
+</head>
 </head>
 <body>
+<div class="title">
 	究極の選択
-  <a href="Voting.action">開始</a>
+</div>
+	<a href="#" data-href="Voting.action"  class="btn-emergency" onclick="delayNavigation(event)">
+	  	<span class="btn-emergency-bottom"></span>
+	  	<span class="btn-emergency-top"><span>開始</span></span>
+	</a>
+	<script>
+	  function delayNavigation(event) {
+	    event.preventDefault();
+
+	    const target = event.currentTarget;
+	    const href = target.getAttribute('data-href');
+
+	    setTimeout(function () {
+	      window.location.replace(href);
+	    }, 700);
+	  }
+	</script>
+
 </body>
 </html>

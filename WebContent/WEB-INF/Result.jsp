@@ -20,19 +20,19 @@
 </div>
 <div class="container">
 	<!-- 問題 -->
-	<div class="title">${ sessionScope.q.text }</div>
+	<div class="title">${ sessionScope.question.text }</div>
 	<!-- vsマーク -->
     <div class="chart">
     	<div class="vs">対</div>
     </div>
     <!-- Aの問題文 -->
-    <div class="amon">${ sessionScope.q.choicesA }</div>
+    <div class="amon">${ sessionScope.question.choicesA }</div>
     <!-- Aの％ -->
    	<div class="percent right" id="percentageright">0%</div>
     <!-- Aの人数 -->
     <div class="anum num" id="anum"></div>
     <!-- Bの問題文 -->
-	<div class="bmon" >${ sessionScope.q.choicesB }</div>
+	<div class="bmon" >${ sessionScope.question.choicesB }</div>
     <!-- Bの％ -->
     <div class="percent left" id="percentageleft" >0%</div>
     <!-- Bの人数 -->

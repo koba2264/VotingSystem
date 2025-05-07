@@ -5,9 +5,9 @@ package bean;
  */
 public class Count {
 	/** 選択肢Aの投票数 */
-	private int A;
+	private static int A;
 	/** 選択肢Bの投票数 */
-	private int B;
+	private static int B;
 
 	/**
 	 * ゲッター
@@ -42,7 +42,20 @@ public class Count {
 	 * 総投票数を取得する
 	 * @return 総投票数
 	 */
-	public int sum() {
+	public static int sum() {
 		return A + B;
+	}
+
+	public static void reset() {
+		A = 0;
+		B = 0;
+	}
+
+	public static void countA() {
+		A++;
+	}
+
+	public static void countB() {
+		B++;
 	}
 }

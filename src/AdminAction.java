@@ -18,10 +18,9 @@ public class AdminAction extends Action {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		QestionDAO dao = new QestionDAO();
-		Question q = dao.question();
 		List<Question> qList = dao.allQuestion();
 		HttpSession session = request.getSession();
-		session.setAttribute("q", q);
+		session.setAttribute("question", new Question());
 		session.setAttribute("qList", qList);
 
 		return "WEB-INF/Admin.jsp";

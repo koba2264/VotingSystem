@@ -12,16 +12,21 @@ public class Question implements java.io.Serializable {
 
 	private static int id = 1;
 	private static List<String> SessionList = new ArrayList<>();
-	private int questionId;
+	private static int questionId;
 
 	/** 問題文 */
-	private String text;
+	private static String text = "選択されていません";
 	/** 選択肢A */
-	private String choicesA;
+	private static String choicesA;
 	/** 選択肢B */
-	private String choicesB;
+	private static String choicesB;
 
-	public static void setId(int id) {
+	private int questionId2;
+	private String text2;
+	private String choicesA2;
+	private String choicesB2;
+
+	public void setId(int id) {
 		Question.id = id;
 	}
 
@@ -30,7 +35,7 @@ public class Question implements java.io.Serializable {
 	 * @param text 問題文
 	 */
 	public void setText(String text) {
-		this.text = text;
+		Question.text = text;
 	}
 
 	/**
@@ -38,7 +43,7 @@ public class Question implements java.io.Serializable {
 	 * @param choicesA 選択肢A
 	 */
 	public void setChoicesA(String choicesA) {
-		this.choicesA = choicesA;
+		Question.choicesA = choicesA;
 	}
 
 	/**
@@ -46,7 +51,7 @@ public class Question implements java.io.Serializable {
 	 * @param choicesB 選択肢B
 	 */
 	public void setChoicesB(String choicesB) {
-		this.choicesB = choicesB;
+		Question.choicesB = choicesB;
 	}
 
 	/**
@@ -74,7 +79,7 @@ public class Question implements java.io.Serializable {
 		return choicesB;
 	}
 
-	public static int getId() {
+	public int getId() {
 		return Question.id;
 	}
 
@@ -83,7 +88,7 @@ public class Question implements java.io.Serializable {
 	}
 
 	public void setQuestionId(int questionId) {
-		this.questionId = questionId;
+		Question.questionId = questionId;
 	}
 
 	/**
@@ -91,7 +96,7 @@ public class Question implements java.io.Serializable {
 	 * @param sessionId 確認するセッションid
 	 * @return あればtrue
 	 */
-	public static boolean	checkSessionList(String sessionId) {
+	public static boolean checkSessionList(String sessionId) {
 		boolean result = SessionList.contains(sessionId);
 		return result;
 	}
@@ -109,5 +114,37 @@ public class Question implements java.io.Serializable {
 	 */
 	public static void resetSessionList() {
 		SessionList = new ArrayList<>();
+	}
+
+	public String getText2() {
+		return text2;
+	}
+
+	public void setText2(String text2) {
+		this.text2 = text2;
+	}
+
+	public String getChoicesA2() {
+		return choicesA2;
+	}
+
+	public void setChoicesA2(String choicesA2) {
+		this.choicesA2 = choicesA2;
+	}
+
+	public String getChoicesB2() {
+		return choicesB2;
+	}
+
+	public void setChoicesB2(String choicesB2) {
+		this.choicesB2 = choicesB2;
+	}
+
+	public int getQuestionId2() {
+		return questionId2;
+	}
+
+	public void setQuestionId2(int questionId2) {
+		this.questionId2 = questionId2;
 	}
 }

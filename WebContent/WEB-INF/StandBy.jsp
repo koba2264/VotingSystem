@@ -17,14 +17,17 @@
 	  <img src="vacation.gif" class="gif">
   </div>
 </body>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/stand_by.js"></script>
     <script>
+    	var bodyElm = document.getElementById("target");
     	var ans = "${ sessionScope.ans }"
     	if (ans == "A") {
-	    	$('#target').addClass("red");
+    		// bodyElm.style.background = "linear-gradient(to right,#FF3399,#FFEEFF,#FF3399)";
+    		bodyElm.classList.add("red");
     	} else {
-    		$('#target').addClass("blue");
+    		// bodyElm.style.background = "linear-gradient(to right,#54acdb,#FFEEFF,#54acdb)";
+    		bodyElm.classList.add("blue");
     	}
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/stand_by.js"></script>
 </html>

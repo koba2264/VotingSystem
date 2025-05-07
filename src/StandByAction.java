@@ -2,8 +2,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import bean.Count;
 import bean.Question;
-import dao.CountDAO;
 import tool.Action;
 import tool.Answer;
 
@@ -25,14 +25,14 @@ public class StandByAction extends Action {
 			System.out.println(ans);
 			if (ans.equals("A")) {
 				answer = Answer.A;
+				Count.countA();
 			} else if (ans.equals("B")) {
 				answer = Answer.B;
+				Count.countB();
 			}
 
 			session.setAttribute("ans", ans);
 
-			CountDAO dao = new CountDAO();
-			dao.vote(answer);
 			System.out.println("投票");
 			Question.setSessionList(sessionId);
 		}

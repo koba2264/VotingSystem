@@ -75,13 +75,12 @@
  		    var ctx = document.getElementById("myChart").getContext("2d");
  		    //グラフカラーA
  		  	var gradientA = ctx.createLinearGradient(0, 0,0, 300);
- 		  	gradientA.addColorStop(0, "#00ffff");
+ 		  	gradientA.addColorStop(0, "#00bfff");
  		  	gradientA.addColorStop(1, "#005FFF");
-
  		  	//グラフカラーB
  		  	var gradientB = ctx.createLinearGradient(0, 0, 0, 300);
 
- 		  	gradientB.addColorStop(0, "#FFBEDA");
+ 		  	gradientB.addColorStop(0, "#ff4d00");
  		  	gradientB.addColorStop(1, "#ff3399");
 
  		  	var myChart = new Chart(ctx, {

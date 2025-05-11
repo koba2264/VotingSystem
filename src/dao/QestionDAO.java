@@ -72,4 +72,28 @@ public class QestionDAO extends DAO {
 		con.close();
 		return qList;
 	}
+
+	public int insert(Question que) throws Exception {
+		Connection con = getConnection();
+
+		PreparedStatement st = con.prepareStatement(
+				"insert into questions(text,choices_a,choices_b) values (?,?,?);");
+		st.setString(1, que.getText2());
+		st.setString(2, que.getChoicesA2());
+		st.setString(3, que.getChoicesB2());
+		int line = st.executeUpdate();
+
+		st.close();
+		con.close();
+		return line;
+	}
+
+	public void delete() throws Exception {
+		Connection con = getConnection();
+
+		PreparedStatement st = con.prepareStatement(
+				"delete from count;delete from questions;");
+		st.close();
+		con.close();
+	}
 }

@@ -49,6 +49,5 @@
       }
     });
   };
-  window.location.replace('StandBy.action');
 </script>
 </html>

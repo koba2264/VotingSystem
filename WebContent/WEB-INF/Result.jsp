@@ -57,8 +57,8 @@
  		  const chartCanvas = document.getElementById("myChart").parentElement;
  		  const allResultElements = document.querySelector(".container");
 
- 		  document.getElementById("anum").textContent = intA + "人";
- 		  document.getElementById("bnum").textContent = intB + "人";
+ 		  document.getElementById("anum").textContent = intA + "グループ";
+ 		  document.getElementById("bnum").textContent = intB + "グループ";
  		  // 初期状態で非表示にしておく
  		  chartCanvas.style.display = "none";
  		  allResultElements.style.display = "none";
